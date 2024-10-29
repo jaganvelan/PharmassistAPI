@@ -12,6 +12,8 @@ import com.example.pharmassist.PharmassistApi.util.ResponseStructure;
 
 import jakarta.validation.Valid;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +50,11 @@ public class AdminControllor {
 	public ResponseEntity<ResponseStructure<AdminResponse>> updateAdmin(@RequestBody AdminRequest adminRequest,@PathVariable String adminId) {
 		AdminResponse response= adminservice.updateAdmin(adminRequest,adminId);
 		return responseBuilder.success(HttpStatus.OK, "Admin updated", response);
+	}
+	@GetMapping("/")
+	public ResponseEntity<ResponseStructure<List<AdminResponse>>> findAllAdmin(){
+		List<AdminResponse> response=adminservice.findAllAdmin();
+		return responseBuilder.success(HttpStatus.FOUND, "User Found", response);
 	}
 }
 
