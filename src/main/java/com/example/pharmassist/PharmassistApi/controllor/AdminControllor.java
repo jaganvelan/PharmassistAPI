@@ -44,5 +44,10 @@ public class AdminControllor {
 		AdminResponse response =adminservice.findAdmin(adminId);
 		return responseBuilder.success(HttpStatus.FOUND, " Admin Found",response); 
 	}
+	@PutMapping("{adminId}")
+	public ResponseEntity<ResponseStructure<AdminResponse>> updateAdmin(@RequestBody AdminRequest adminRequest,@PathVariable String adminId) {
+		AdminResponse response= adminservice.updateAdmin(adminRequest,adminId);
+		return responseBuilder.success(HttpStatus.OK, "Admin updated", response);
+	}
 }
 
