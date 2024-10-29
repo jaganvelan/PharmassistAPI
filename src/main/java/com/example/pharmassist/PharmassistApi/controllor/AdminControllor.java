@@ -39,5 +39,10 @@ public class AdminControllor {
 		return responseBuilder.success(HttpStatus.CREATED, "Admin created", response);
 
 	}
+	@GetMapping("/{adminId}")
+	public ResponseEntity<ResponseStructure<AdminResponse>> findadmin(@PathVariable String adminId){
+		AdminResponse response =adminservice.findAdmin(adminId);
+		return responseBuilder.success(HttpStatus.FOUND, " Admin Found",response); 
+	}
 }
 
