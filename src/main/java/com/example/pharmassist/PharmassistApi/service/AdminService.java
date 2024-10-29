@@ -1,5 +1,7 @@
 package com.example.pharmassist.PharmassistApi.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.pharmassist.PharmassistApi.entity.Admin;
@@ -40,6 +42,12 @@ public class AdminService {
 				})
 				.map(adminMapper::mapToAdminResponse)
 				.orElseThrow(() -> new AdminNotFoundByIdException("Failed to update Admin"));
+	}
+	public List<AdminResponse> findAllAdmin(){
+		return adminRepository.findAll()
+				.stream()
+				.map(adminMapper::mapToAdminResponse)
+				.toList();
 	}
 
 }
