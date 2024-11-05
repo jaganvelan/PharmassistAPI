@@ -11,21 +11,19 @@ import com.example.pharmassist.PharmassistApi.repository.AdminRepository;
 import com.example.pharmassist.PharmassistApi.requestdtos.AdminRequest;
 import com.example.pharmassist.PharmassistApi.responsedtos.AdminResponse;
 
-import jakarta.validation.Valid;
 
 @Service
 public class AdminService {
 
 	private AdminRepository adminRepository;
-	private AdminMapper adminMapper;
-	
+	private  AdminMapper adminMapper;
 	public AdminService(AdminRepository adminRepository, AdminMapper adminMapper) {
 		super();
 		this.adminRepository = adminRepository;
 		this.adminMapper = adminMapper;
 	}
 
-	public AdminResponse addAdmin(@Valid AdminRequest adminRequest) {
+	public AdminResponse addAdmin( AdminRequest adminRequest) {
 		Admin admin=adminRepository.save(adminMapper.mapToAdmin(adminRequest, new Admin()));
 		return adminMapper.mapToAdminResponse(admin);
 	}

@@ -3,7 +3,6 @@ package com.example.pharmassist.PharmassistApi.controllor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.pharmassist.PharmassistApi.entity.Admin;
 import com.example.pharmassist.PharmassistApi.requestdtos.AdminRequest;
 import com.example.pharmassist.PharmassistApi.responsedtos.AdminResponse;
 import com.example.pharmassist.PharmassistApi.service.AdminService;
@@ -26,8 +25,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/admins")
 public class AdminControllor {
-	private AdminService adminservice;
-	private AppResponseBuilder responseBuilder;
+	private  AdminService adminservice;
+	private   AppResponseBuilder responseBuilder;
 
 	public AdminControllor(AdminService adminservice, AppResponseBuilder responseBuilder) {
 		super();
@@ -46,8 +45,8 @@ public class AdminControllor {
 		AdminResponse response =adminservice.findAdmin(adminId);
 		return responseBuilder.success(HttpStatus.FOUND, " Admin Found",response); 
 	}
-	@PutMapping("{adminId}")
-	public ResponseEntity<ResponseStructure<AdminResponse>> updateAdmin(@RequestBody AdminRequest adminRequest,@PathVariable String adminId) {
+	@PutMapping("/{adminId}")
+	public ResponseEntity<ResponseStructure<AdminResponse>> updateAdmin(@RequestBody @Valid AdminRequest adminRequest,@PathVariable String adminId) {
 		AdminResponse response= adminservice.updateAdmin(adminRequest,adminId);
 		return responseBuilder.success(HttpStatus.OK, "Admin updated", response);
 	}
