@@ -2,14 +2,13 @@ package com.example.pharmassist.PharmassistApi.responsedtos;
 
 import java.time.LocalDate;
 
-import com.example.pharmassist.PharmassistApi.util.MyEnum;
-
+import com.example.pharmassist.PharmassistApi.enums.Gender;
 public class PatientResponse {
 private String patientId;
 private String patientName;
 private String phoneNumber;
 private String email;
-private MyEnum gender;
+private Gender gender;
 private LocalDate dob;
 public String getPatientId() {
 	return patientId;
@@ -35,10 +34,10 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public MyEnum getGender() {
+public Gender getGender() {
 	return gender;
 }
-public void setGender(MyEnum gender) {
+public void setGender(Gender gender) {
 	this.gender = gender;
 }
 public LocalDate getDob() {

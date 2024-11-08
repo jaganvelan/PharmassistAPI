@@ -2,8 +2,7 @@ package com.example.pharmassist.PharmassistApi.requestdtos;
 
 import java.time.LocalDate;
 
-
-import com.example.pharmassist.PharmassistApi.util.MyEnum;
+import com.example.pharmassist.PharmassistApi.enums.Gender;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,7 +21,7 @@ private String phoneNumber;
 	@NotNull(message = "email must be entered")
 	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",message = "invalid email")
 private String email;
-private MyEnum gender;
+private Gender gender;
 private LocalDate dob;
 	public String getPatientName() {
 		return patientName;
@@ -42,10 +41,10 @@ private LocalDate dob;
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public MyEnum getGender() {
+	public Gender getGender() {
 		return gender;
 	}
-	public void setGender(MyEnum gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 	public LocalDate getDob() {

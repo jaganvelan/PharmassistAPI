@@ -8,6 +8,7 @@ import com.example.pharmassist.PharmassistApi.responsedtos.PharmacyResponse;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -27,6 +28,16 @@ private Admin admin;
 
 @OneToMany(mappedBy = "pharmacy")
 private List<Patient> patient;
+
+@OneToMany(mappedBy = "pharmacy")
+private List<Medicine> medicine; 
+
+public List<Medicine> getMedicine() {
+	return medicine;
+}
+public void setMedicine(List<Medicine> medicine) {
+	this.medicine = medicine;
+}
 public Admin getAdmin() {
 	return admin;
 }

@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Component;
 
 import com.example.pharmassist.PharmassistApi.config.GenerateCustomId;
-import com.example.pharmassist.PharmassistApi.util.MyEnum;
-
+import com.example.pharmassist.PharmassistApi.enums.Gender;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -20,7 +19,7 @@ public class Patient {
 	private String patientName;
 	private String phoneNumber;
 	private String email;
-	private MyEnum gender;
+	private Gender gender;
 	private LocalDate dob;
 	@ManyToOne
 	private Pharmacy pharmacy;
@@ -55,10 +54,10 @@ public class Patient {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public MyEnum getGender() {
+	public Gender getGender() {
 		return gender;
 	}
-	public void setGender(MyEnum gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 	public LocalDate getDob() {
