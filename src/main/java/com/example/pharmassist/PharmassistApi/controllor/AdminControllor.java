@@ -46,7 +46,7 @@ public class AdminControllor {
 							@Content(schema = @Schema(implementation=ErrorStructure.class))
 					})
 			})
-	@PostMapping("/admins")
+	@PostMapping("/register")
 	public  ResponseEntity<ResponseStructure<AdminResponse>> addAdmin(@RequestBody @Valid AdminRequest adminRequest) {
 		AdminResponse response= adminservice.addAdmin(adminRequest);
 		return responseBuilder.success(HttpStatus.CREATED, "Admin created", response);
