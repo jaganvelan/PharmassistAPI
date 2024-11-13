@@ -20,7 +20,6 @@ public PharmacyResponse mapToPharmacyResponse(Pharmacy pharmacy) {
 	pharmacyResponse.setPharmacyName(pharmacy.getPharmacyName());
 	pharmacyResponse.setGstNo(pharmacy.getGstNo());
 	pharmacyResponse.setLicenceNo(pharmacy.getLicenceNO());
-	pharmacyResponse.setAdminId(pharmacy.getAdmin().getAdminId());
 	return pharmacyResponse;
 }
 }
